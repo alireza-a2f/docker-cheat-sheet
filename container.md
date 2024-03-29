@@ -2,7 +2,7 @@
 
 ## Running Containers
 
-- **Run a container**: `docker container run IMAGE [COMMAND] [ARG...]`
+- `docker container run IMAGE [COMMAND] [ARG...]`: Run a container
     - `-d`: Run the container in detached mode.
     - `--name NAME`: Assign a name to the container.
     - `-p hostPort:containerPort`: Map port from host to container.
@@ -14,66 +14,47 @@
 
 ## Managing Container Execution
 
-- **List containers**: `docker container ls [OPTIONS]`
+- `docker container ls [OPTIONS]`: List containers
     - `-a`: Show all containers.
-    
-- **Stop a container**: `docker container stop CONTAINER_ID/NAME`
-  
-- **Start a container**: `docker container start CONTAINER_ID/NAME`
-
-- **Restart a container**: `docker container restart CONTAINER_ID/NAME`
-
-- **Kill a container**: `docker container kill CONTAINER_ID/NAME`
-
-- **Remove a container**: `docker container rm CONTAINER_ID/NAME`
+- `docker container stop CONTAINER_ID/NAME`: Stop a container
+- `docker container start CONTAINER_ID/NAME`: Start a container
+- `docker container restart CONTAINER_ID/NAME`: Restart a container
+- `docker container kill CONTAINER_ID/NAME`: Kill a container
+- `docker container rm CONTAINER_ID/NAME`: Remove a container
     - `-f`: Force removal of a running container.
-
-- **Pause processes in a container**: `docker container pause CONTAINER_ID/NAME`
-
-- **Unpause processes in a container**: `docker container unpause CONTAINER_ID/NAME`
+- `docker container pause CONTAINER_ID/NAME`: Pause processes in a container
+- `docker container unpause CONTAINER_ID/NAME`: Unpause processes in a container
 
 ## Interacting with Containers
 
-- **Execute a command in a container**: `docker container exec [OPTIONS] CONTAINER COMMAND [ARG...]`
+- `docker container exec [OPTIONS] CONTAINER COMMAND [ARG...]`: Execute a command in a container
     - `-it`: Interactive shell.
-
-- **Fetch container logs**: `docker container logs CONTAINER_ID/NAME`
-
-- **Attach to a container**: `docker container attach CONTAINER_ID/NAME`
+- `docker container logs CONTAINER_ID/NAME`: Fetch container logs
+- `docker container attach CONTAINER_ID/NAME`: Attach to a container
 
 ## Container Inspection and Management
 
-- **Display running processes within a container**: `docker container top CONTAINER_ID/NAME [ps OPTIONS]`
-
-- **Inspect a container**: `docker container inspect CONTAINER_ID/NAME`
-
-- **Display container resource usage statistics**: `docker container stats [OPTIONS] [CONTAINER...]`
-
-- **Rename a container**: `docker container rename CURRENT_NAME NEW_NAME`
+- `docker container top CONTAINER_ID/NAME [ps OPTIONS]`: Display running processes within a container
+- `docker container inspect CONTAINER_ID/NAME`: Inspect a container
+- `docker container stats [OPTIONS] [CONTAINER...]`: Display container resource usage statistics
+- `docker container rename CURRENT_NAME NEW_NAME`: Rename a container
 
 ## Network Management
 
-- **List port mappings for a container**: `docker container port CONTAINER_ID/NAME [PRIVATE_PORT]`
-
-- **Retrieving container IP address**: `docker inspect -f '{{ .NetworkSettings.IPAddress }}' CONTAINER_ID/NAME`
-
-- **List all networks created on the Docker host**: `docker network ls`
-
-- **Show detailed information on a network**: `docker network inspect NETWORK_ID/NAME`
-
-- **Create a network**: `docker network create [OPTIONS] [NETWORK]`
+- `docker container port CONTAINER_ID/NAME [PRIVATE_PORT]`: List port mappings for a container
+- `docker inspect -f '{{ .NetworkSettings.IPAddress }}' CONTAINER_ID/NAME`: Retrieving container IP address
+- `docker network ls`: List all networks created on the Docker host
+- `docker network inspect NETWORK_ID/NAME`: Inspect a docker network
+- `docker network create [OPTIONS] [NETWORK]`: Create a network
     - `--driver`: Select network driver.
-
-- **Connect a container to a network**: `docker network connect NETWORK_ID/NAME CONTAINER_ID/NAME`
-
-- **Disconnect a container from a network**: `docker network disconnect NETWORK_ID/NAME CONTAINER_ID/NAME`
+- `docker network connect NETWORK_ID/NAME CONTAINER_ID/NAME`: Connect a container to a network
+- `docker network disconnect NETWORK_ID/NAME CONTAINER_ID/NAME`: Disconnect a container from a network
 
 ## Cleaning Up
 
-- **Remove all stopped containers**: `docker container prune`
-
-- **Remove unused data**: `docker system prune`
+- `docker container prune`: Remove all stopped containers
+- `docker system prune`: Remove unused data
 
 ## Saving and Loading Containers
 
-- **Create an image from a container's changes**: `docker commit CONTAINER_ID REPOSITORY[:TAG]`
+- `docker commit CONTAINER_ID REPOSITORY[:TAG]`: Create an image from a container's changes
