@@ -2,11 +2,7 @@
 
 ## Running Containers
 
-- **Run a container**: Creates and starts a container from an image.
-
-  ```
-  docker container run IMAGE [COMMAND] [ARG...]
-  ```
+- **Run a container**: `docker container run IMAGE [COMMAND] [ARG...]`
     - `-d`: Run the container in detached mode.
     - `--name NAME`: Assign a name to the container.
     - `-p hostPort:containerPort`: Map port from host to container.
@@ -17,111 +13,57 @@
 
 ## Managing Container Execution
 
-- **List containers**: By default, it shows running containers.
-  ```
-  docker container ls [OPTIONS]
-  ```
+- **List containers**: `docker container ls [OPTIONS]`
     - `-a`: Show all containers.
     
-- **Stop a container**:
-  ```
-  docker container stop CONTAINER_ID/NAME
-  ```
+- **Stop a container**: `docker container stop CONTAINER_ID/NAME`
   
-- **Start a container**:
-  ```
-  docker container start CONTAINER_ID/NAME
-  ```
+- **Start a container**: `docker container start CONTAINER_ID/NAME`
 
-- **Restart a container**:
-  ```
-  docker container restart CONTAINER_ID/NAME
-  ```
+- **Restart a container**: `docker container restart CONTAINER_ID/NAME`
 
-- **Kill a container**:
-  ```
-  docker container kill CONTAINER_ID/NAME
-  ```
+- **Kill a container**: `docker container kill CONTAINER_ID/NAME`
 
-- **Remove a container**:
-  ```
-  docker container rm CONTAINER_ID/NAME
-  ```
+- **Remove a container**: `docker container rm CONTAINER_ID/NAME`
     - `-f`: Force removal of a running container.
 
-- **Pause/Unpause processes in a container**:
-  ```
-  docker container pause CONTAINER_ID/NAME
-  docker container unpause CONTAINER_ID/NAME
-  ```
+- **Pause processes in a container**: `docker container pause CONTAINER_ID/NAME`
+
+- **Unpause processes in a container**: `docker container unpause CONTAINER_ID/NAME`
 
 ## Interacting with Containers
 
-- **Execute a command in a container**:
-  ```
-  docker container exec [OPTIONS] CONTAINER COMMAND [ARG...]
-  ```
+- **Execute a command in a container**: `docker container exec [OPTIONS] CONTAINER COMMAND [ARG...]`
     - `-it`: Interactive shell.
 
-- **Fetch container logs**:
-  ```
-  docker container logs CONTAINER_ID/NAME
-  ```
+- **Fetch container logs**: `docker container logs CONTAINER_ID/NAME`
 
-- **Attach to a container**:
-  ```
-  docker container attach CONTAINER_ID/NAME
-  ```
+- **Attach to a container**: `docker container attach CONTAINER_ID/NAME`
 
 ## Container Inspection and Management
 
-- **Display running processes within a container**:
-  ```
-  docker container top CONTAINER_ID/NAME [ps OPTIONS]
-  ```
+- **Display running processes within a container**: `docker container top CONTAINER_ID/NAME [ps OPTIONS]`
 
-- **Inspect a container**:
-  ```
-  docker container inspect CONTAINER_ID/NAME
-  ```
+- **Inspect a container**: `docker container inspect CONTAINER_ID/NAME`
 
-- **Display container resource usage statistics**:
-  ```
-  docker container stats [OPTIONS] [CONTAINER...]
-  ```
+- **Display container resource usage statistics**: `docker container stats [OPTIONS] [CONTAINER...]`
 
-- **Rename a container**:
-  ```
-  docker container rename CURRENT_NAME NEW_NAME
-  ```
+- **Rename a container**: `docker container rename CURRENT_NAME NEW_NAME`
 
-## Volume and Network Management
+## Network Management
 
-- **Create a volume**:
-  ```
-  docker volume create [OPTIONS] [VOLUME]
-  ```
+- **List port mappings for a container**: `docker container port CONTAINER_ID/NAME [PRIVATE_PORT]`
 
-- **Create a network**:
-  ```
-  docker network create [OPTIONS] [NETWORK]
-  ```
+- **Retrieving container IP address**: `docker inspect -f '{{ .NetworkSettings.IPAddress }}' CONTAINER_ID/NAME`
+
+- **Create a network**: `docker network create [OPTIONS] [NETWORK]`
 
 ## Cleaning Up
 
-- **Remove all stopped containers**:
-  ```
-  docker container prune
-  ```
+- **Remove all stopped containers**: `docker container prune`
 
-- **Remove unused data**:
-  ```
-  docker system prune
-  ```
+- **Remove unused data**: `docker system prune`
 
 ## Saving and Loading Containers
 
-- **Create an image from a container's changes**:
-  ```
-  docker commit CONTAINER_ID REPOSITORY[:TAG]
-  ```
+- **Create an image from a container's changes**: `docker commit CONTAINER_ID REPOSITORY[:TAG]`
