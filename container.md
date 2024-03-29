@@ -39,7 +39,7 @@
 - `docker container stats [OPTIONS] [CONTAINER...]`: Display container resource usage statistics
 - `docker container rename CURRENT_NAME NEW_NAME`: Rename a container
 
-## Network Management
+## Network Inspection and Management
 
 - `docker container port CONTAINER_ID/NAME [PRIVATE_PORT]`: List port mappings for a container
 - `docker inspect -f '{{ .NetworkSettings.IPAddress }}' CONTAINER_ID/NAME`: Retrieving container IP address
