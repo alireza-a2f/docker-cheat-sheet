@@ -10,6 +10,7 @@
     - `-e KEY=VALUE`: Set an environment variable.
     - `--rm`: Remove the container when it exits.
     - `-it`: Interactive shell.
+    - `--network`: Set the container's network.
 
 ## Managing Container Execution
 
@@ -56,7 +57,16 @@
 
 - **Retrieving container IP address**: `docker inspect -f '{{ .NetworkSettings.IPAddress }}' CONTAINER_ID/NAME`
 
+- **List all networks created on the Docker host**: `docker network ls`
+
+- **Show detailed information on a network**: `docker network inspect NETWORK_ID/NAME`
+
 - **Create a network**: `docker network create [OPTIONS] [NETWORK]`
+    - `--driver`: Select network driver.
+
+- **Connect a container to a network**: `docker network connect NETWORK_ID/NAME CONTAINER_ID/NAME`
+
+- **Disconnect a container from a network**: `docker network disconnect NETWORK_ID/NAME CONTAINER_ID/NAME`
 
 ## Cleaning Up
 
