@@ -50,7 +50,7 @@
 - `docker network connect NETWORK_ID/NAME CONTAINER_ID/NAME`: Connect a container to a network.
 - `docker network disconnect NETWORK_ID/NAME CONTAINER_ID/NAME`: Disconnect a container from a network.
 
-## Managing Images
+## Image Inspection and Management
 
 - `docker image ls`: List all local images.
 - `docker image pull [IMAGE_NAME]:[TAG]`: Download an image from Docker Hub.
