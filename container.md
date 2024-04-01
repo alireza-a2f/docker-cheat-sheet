@@ -47,3 +47,35 @@
 ## Saving and Loading Containers
 
 - `docker commit CONTAINER_ID REPOSITORY[:TAG]`: Create an image from a container's changes.
+
+## Best Practices
+
+- **Use Official Images:** Prefer official Docker images as a base for reliability and security.
+
+- **Keep Containers Immutable:** Avoid making changes to running containers. Rebuild and redeploy containers for updates.
+
+- **Use Specific Image Tags:** Specify exact image versions to ensure consistency and avoid unexpected changes.
+
+- **Minimize Container Footprint:** Use minimal base images like Alpine for smaller, more secure containers.
+
+- **Limit Container Responsibilities:** Follow the one-process-per-container principle for isolation and scalability.
+
+- **Manage Secrets Securely:** Use Docker secrets or external secrets management tools instead of hardcoding in images.
+
+- **Set Resource Limits:** Apply CPU and memory limits to containers to prevent resource hogging (`--cpus`, `--memory`).
+
+- **Log to STDOUT/STDERR:** Configure applications to write logs to console, enabling Docker to manage logs effectively.
+
+- **Keep Containers Stateless:** Design for statelessness to facilitate scalability, easy updates, and high availability.
+
+- **Secure Containers:** Run as a non-root user, remove unnecessary privileges, and use read-only filesystems where possible.
+
+- **Monitor Container Health:** Utilize `HEALTHCHECK` instructions in Dockerfiles or container orchestration health checks.
+
+- **Network Security:** Utilize user-defined networks for isolation and apply firewall rules for external communications.
+
+- **Regularly Update Images:** Keep images updated with the latest patches for security and performance.
+
+- **Prune Unused Objects:** Regularly clean up unused images, containers, networks, and volumes to free up space.
+
+- **Use Docker Compose for Development:** Leverage Docker Compose to define and run multi-container applications during development.
