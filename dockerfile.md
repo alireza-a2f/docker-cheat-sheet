@@ -2,78 +2,33 @@
 
 ## Basic Instructions
 
-- **FROM**: Initializes a new build stage and sets the Base Image.
-  ```Dockerfile
-  FROM <image>:<tag>
-  ```
+- `FROM <image>:<tag>`: Initializes a new build stage and sets the Base Image.
+- `RUN <command>`: Executes commands in a new layer on top of the current image.
+- `CMD ["executable","param1","param2"]`: Provides defaults for an executing container. Only one CMD allowed.
+- `LABEL <key>=<value> ...`: Adds metadata to an image.
+- `EXPOSE <port>`: Informs Docker that the container listens on specified network ports.
+- `ENV <key> <value>`: Sets environment variable.
+- `ADD <src> <dest>`: Copies new files, directories, or remote file URLs and adds them to the filesystem of the container.
+- `COPY <src> <dest>`: Copies new files or directories and adds them to the filesystem of the container.
+- `ENTRYPOINT ["executable", "param1", "param2"]`: Configures a container that will run as an executable.
+- `VOLUME ["/data"]`: Creates a mount point and marks it as holding externally mounted volumes.
+- `USER <user>[:<group>]`: Sets the username or UID used for running the image.
+- `WORKDIR /path/to/workdir`: Sets the working directory for instructions like RUN, CMD, ENTRYPOINT, COPY, and ADD.
+- `ARG <name>[=<default value>]`: Defines a variable to pass to Docker at build time.
+- `ONBUILD <INSTRUCTION>`: Adds a trigger instruction to be executed at a later stage when the image is used as a base for another build.
 
-- **RUN**: Executes commands in a new layer on top of the current image.
-  ```Dockerfile
-  RUN <command>
-  ```
+## Best Practices
 
-- **CMD**: Provides defaults for an executing container. Only one CMD allowed.
-  ```Dockerfile
-  CMD ["executable","param1","param2"]
-  ```
+- **Minimize Layers**: Combine RUN commands with &&.
 
-- **LABEL**: Adds metadata to an image.
-  ```Dockerfile
-  LABEL <key>=<value> ...
-  ```
+- **Use .dockerignore**: To exclude unnecessary files from the build context.
 
-- **EXPOSE**: Informs Docker that the container listens on specified network ports.
-  ```Dockerfile
-  EXPOSE <port>
-  ```
+- **Prefer COPY Over ADD**: Unless you need tar extraction or remote URLs.
 
-- **ENV**: Sets environment variable.
-  ```Dockerfile
-  ENV <key> <value>
-  ```
-
-- **ADD**: Copies new files, directories, or remote file URLs and adds them to the filesystem of the container.
-  ```Dockerfile
-  ADD <src> <dest>
-  ```
-
-- **COPY**: Copies new files or directories and adds them to the filesystem of the container.
-  ```Dockerfile
-  COPY <src> <dest>
-  ```
-
-- **ENTRYPOINT**: Configures a container that will run as an executable.
-  ```Dockerfile
-  ENTRYPOINT ["executable", "param1", "param2"]
-  ```
-
-- **VOLUME**: Creates a mount point and marks it as holding externally mounted volumes.
-  ```Dockerfile
-  VOLUME ["/data"]
-  ```
-
-- **USER**: Sets the username or UID used for running the image.
-  ```Dockerfile
-  USER <user>[:<group>]
-  ```
-
-- **WORKDIR**: Sets the working directory for instructions like RUN, CMD, ENTRYPOINT, COPY, and ADD.
-  ```Dockerfile
-  WORKDIR /path/to/workdir
-  ```
-
-- **ARG**: Defines a variable to pass to Docker at build time.
-  ```Dockerfile
-  ARG <name>[=<default value>]
-  ```
-
-- **ONBUILD**: Adds a trigger instruction to be executed at a later stage when the image is used as a base for another build.
-  ```Dockerfile
-  ONBUILD <INSTRUCTION>
-  ```
+- **Explicit Tags**: Use specific image tags to ensure reproducibility.
 
 
-### Example Dockerfile for a Django-Vue Project
+## Example Dockerfile for a Django-Vue Project
 
 This example illustrates a multi-stage build Dockerfile for a project with a Django backend and a Vue.js frontend. It compiles the Vue.js frontend app and serves it with an Nginx server, while the Django backend runs in a separate container.
 
